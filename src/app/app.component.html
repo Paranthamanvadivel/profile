@@ -1,0 +1,50 @@
+<div style="display: flex;">
+    <div style="height:550px;background-color: lightgray;width: 30%; ">
+        <p-button label="Asc" style="margin:2px" (click)="asc()" icon="pi pi-sort-alpha-down" iconPos="left"></p-button>
+        <p-button label="Dsc" (click)="dsc()" icon="pi pi-sort-alpha-down-alt" iconPos="left"></p-button>
+        <span style="width: 100px;background-color: grey;">
+            <div *ngFor="let people of peoples.people"  [ngClass]="people.clicked ? 'profile-name-active' : 'profile-name'" (click)="fetchPeople(people.name)">
+                {{people.name}}</div>
+        </span>
+    </div>
+    <div *ngIf="isPeopleSelected"
+        style="height:550px;background-color: lightyellow;width: 70%;padding-left: 2%;padding-top: 2%;">
+        <div style="display:flex">
+            <div style="width:20%">
+                <img src="{{val.profileImage}}" alt="avatar" class="avatar">
+            </div>
+            <div style="padding-left:20px;width: 70%;margin-top: 6%;">
+                <div style="font-size: 30px;">{{val.name}}</div>
+                <div style="margin-top: 10px;">{{val.workExperience[0].title}}</div>
+                <div>{{val.phone}}</div>
+                <div style="color:blue;cursor:pointer">{{val.email}}</div>
+            </div>
+        </div>
+
+        <h4 style="font-size: 20px;">Education</h4>
+        <div class="education" *ngFor="let val of val.education" style="width:100%;display:flex">
+            <div style="width:20%">
+                <div style="font-weight: 800;text-align: right;margin-right: 25px;">{{val.startYear}}-{{val.endYear}}
+                </div>
+            </div>
+            <div style="width:70%;padding-left:20px;">
+                <div>{{val.institution}} </div>
+                <div>{{val.degree}}</div>
+            </div>
+        </div>
+        <h4 style="font-size: 20px;">Work Experience</h4>
+        <div class="education" *ngFor="let val of val.workExperience"
+            style="width:100%;display:flex;margin-bottom: 10px;">
+            <div style="width:20%">
+                <div style="font-weight: 800;text-align: right;margin-right: 25px;">{{val.startYear}}
+                    <span *ngIf="val.endYear">-{{val.endYear}}</span>
+                    <span *ngIf="!val.endYear">- Present</span>
+                </div>
+            </div>
+            <div style="width:70%;padding-left:20px;">
+                <div>{{val.institution}} </div>
+                <div>{{val.title}}</div>
+            </div>
+        </div>
+    </div>
+</div>

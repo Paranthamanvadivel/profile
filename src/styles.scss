@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+.profile-name{
+    width:99.5%;
+    margin:2px;
+    padding:15px ;
+}
+.profile-name:hover{
+    width:99.5%;
+    background-color:rgb(20, 67, 155);
+    color:white;
+    margin:2px;
+    padding:15px ;
+    cursor: pointer;
+}
+.profile-name-active{
+    width:99.5%;
+    background-color:rgb(20, 67, 155);
+    color:white;
+    margin:2px;
+    padding:15px ;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 50%;
+  }
